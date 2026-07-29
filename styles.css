@@ -287,18 +287,72 @@ footer.footer-obolos {
 
 /* Responsive Media Queries */
 @media (max-width: 1024px) {
-  .wrap-container { padding: 0 24px; }
-  .navbar-obolos { padding: 20px 24px; }
-  .feature-grid-obolos { grid-template-columns: 1fr; }
+  .wrap-container { padding: 0 20px; }
+  .navbar-obolos { padding: 18px 24px; }
+  .feature-grid-obolos { grid-template-columns: 1fr; gap: 20px; }
   .footer-nav-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
 }
 
 @media (max-width: 768px) {
   .desktop-nav-links { display: none !important; }
   .btn-hamburger-obolos { display: flex !important; }
-  .navbar-obolos { padding: 16px 20px; }
-  .hero-obolos { padding: 40px 0 60px; }
-  h1.hero-h1-obolos { font-size: 2.3rem; }
-  .captable-card-obolos { padding: 24px; margin-top: 36px; }
-  .footer-nav-grid { grid-template-columns: 1fr; gap: 28px; }
+  .navbar-obolos { padding: 14px 18px; }
+  .hero-obolos { padding: 32px 0 48px; }
+  
+  h1.hero-h1-obolos {
+    font-size: 2.1rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .eyebrow-tag-obolos {
+    font-size: 0.68rem;
+    padding: 6px 14px;
+    letter-spacing: 0.03em;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .btn-obolos-cyan, .btn-obolos-outline {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .captable-card-obolos {
+    padding: 20px;
+    margin-top: 28px;
+    border-radius: 16px;
+  }
+
+  /* Force 1-column layout for grid cards on mobile */
+  .grid-2-cols-mobile,
+  div[style*="grid-template-columns: repeat(2, 1fr)"],
+  div[style*="grid-template-columns: repeat(3, 1fr) auto"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Form inputs full width on mobile */
+  input[type="text"], input[type="number"], select {
+    width: 100% !important;
+  }
+
+  .footer-nav-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Code IDE overflow on mobile */
+  pre {
+    font-size: 0.8rem !important;
+    padding: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1.hero-h1-obolos { font-size: 1.85rem !important; }
+  .brand-logo-obolos { font-size: 1.15rem; }
+  .captable-card-obolos { padding: 16px; }
+  .wrap-container { padding: 0 16px; }
 }

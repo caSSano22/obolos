@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compliance Protocol Architecture | obolos</title>
+  <meta name="description" content="Programmable compliance checks for tokenized equity, SEC Reg D/S transfer rules, and KYC/AML whitelisting on Robinhood Chain." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body style="padding-top: 20px;">
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar-obolos">
+    <a href="index.html" class="brand-logo-obolos">
+      obolos
+    </a>
+
+    <div class="desktop-nav-links" style="display: flex; align-items: center; gap: 16px;">
+      <nav class="nav-links-obolos">
+        <a href="index.html" class="nav-link-obolos">Overview</a>
+        <a href="protocol.html" class="nav-link-obolos active">Protocol</a>
+        <a href="cap-table.html" class="nav-link-obolos">Cap Table</a>
+        <a href="developers.html" class="nav-link-obolos">Developers</a>
+        <a href="https://x.com/equitylayer" target="_blank" class="nav-link-obolos">𝕏 @equitylayer</a>
+      </nav>
+
+      <button class="btn-obolos-cyan" onclick="launchComplianceModal()">Launch Portal</button>
+    </div>
+  </header>
+
+  <div class="wrap-container" style="padding-top: 60px; padding-bottom: 120px;">
+    <div class="eyebrow-tag-obolos">PROGRAMMABLE COMPLIANCE ENGINE</div>
+    <h1 style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; margin-bottom: 24px;">Regulatory Transfer Rules</h1>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 20px; padding: 32px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; color: var(--neon-cyan);">KYC / AML Whitelisting</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+          Every share transfer executes an automated check against verified investor identities before token minting or transfer.
+        </p>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 20px; padding: 32px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; color: var(--neon-cyan);">SEC Reg D & Reg S Enforcement</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+          Automated 1-year lockup periods, accredited investor verification, and country jurisdiction transfer barriers.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

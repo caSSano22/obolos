@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>obolos | The Compliance Protocol for Tokenized Equity</title>
+  <meta name="description" content="obolos helps companies issue, manage, and transfer tokenized equity with compliance checks built into cap tables, SAFE agreements, vesting, and transfers on Robinhood Chain." />
+  <meta name="theme-color" content="#0c0d11" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta property="og:title" content="obolos | The Compliance Protocol for Tokenized Equity" />
+  <meta property="og:description" content="Programmable Equity for the Onchain Economy on Robinhood Chain." />
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar-obolos">
+    <a href="index.html" class="brand-logo-obolos">
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" rx="24" fill="#00f0ff"/>
+        <circle cx="50" cy="50" r="30" fill="#0c0d11"/>
+        <rect x="42" y="25" width="16" height="50" rx="8" fill="#00f0ff"/>
+      </svg>
+      obolos
+    </a>
+
+    <div class="desktop-nav-links" style="display: flex; align-items: center; gap: 16px;">
+      <nav class="nav-links-obolos">
+        <a href="index.html" class="nav-link-obolos active">Overview</a>
+        <a href="protocol.html" class="nav-link-obolos">Protocol</a>
+        <a href="cap-table.html" class="nav-link-obolos">Cap Table</a>
+        <a href="developers.html" class="nav-link-obolos">Developers</a>
+        <a href="https://x.com/equitylayer" target="_blank" class="nav-link-obolos">𝕏 @equitylayer</a>
+      </nav>
+
+      <button class="btn-obolos-cyan" onclick="launchComplianceModal()">Launch Portal</button>
+    </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button class="btn-hamburger-obolos" onclick="toggleMobileMenuObolos()" aria-label="Open menu">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </header>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobileMenuDrawerObolos" class="mobile-menu-drawer-obolos">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="brand-logo-obolos" onclick="toggleMobileMenuObolos()">
+        obolos
+      </a>
+      <button style="background: transparent; border: none; font-size: 2rem; color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">&times;</button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 24px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-top: 40px;">
+      <a href="index.html" style="color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">Overview</a>
+      <a href="protocol.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Protocol</a>
+      <a href="cap-table.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Cap Table</a>
+      <a href="developers.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Developers</a>
+      <a href="https://x.com/equitylayer" target="_blank" style="color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">𝕏 @equitylayer</a>
+    </div>
+
+    <div style="margin-top: auto;">
+      <button class="btn-obolos-cyan" style="width: 100%;" onclick="toggleMobileMenuObolos(); launchComplianceModal();">Launch Portal</button>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-obolos">
+    <div class="wrap-container" style="position: relative; z-index: 10;">
+      <div class="eyebrow-tag-obolos">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--neon-cyan);"></span>
+        THE COMPLIANCE PROTOCOL FOR TOKENIZED EQUITY • ROBINHOOD CHAIN
+      </div>
+
+      <h1 class="hero-h1-obolos">Programmable Equity for the Onchain Economy.</h1>
+
+      <p style="margin: 24px auto 0; max-width: 720px; font-size: 1.25rem; color: var(--text-muted); line-height: 1.55;">
+        obolos helps companies issue, manage, and transfer tokenized equity with compliance checks built directly into cap tables, SAFE agreements, vesting schedules, and transfers.
+      </p>
+
+      <div style="margin-top: 36px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <button class="btn-obolos-cyan" onclick="launchComplianceModal()">Launch Cap Table Engine</button>
+        <a href="protocol.html" class="btn-obolos-outline">Explore Compliance Protocol</a>
+      </div>
+
+      <!-- INTERACTIVE CAP TABLE ENGINE WIDGET -->
+      <div class="captable-card-obolos">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 700;">On-Chain Cap Table Simulator</h3>
+            <p style="color: var(--text-subtle); font-size: 0.9rem;">Simulate compliant equity tokenization on Robinhood Chain.</p>
+          </div>
+
+          <div id="complianceStatusBadge" style="background: rgba(0, 240, 255, 0.08); border: 1px solid rgba(0, 240, 255, 0.3); padding: 8px 18px; border-radius: 9999px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--neon-cyan); font-weight: 600;">
+            VERIFIED COMPLIANT (SEC / ROBINHOOD CHAIN)
+          </div>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.95rem; margin-bottom: 12px;">
+            <span>Company Post-Money Valuation:</span>
+            <strong id="valDisplay" style="color: var(--neon-cyan); font-size: 1.4rem;">$10.0M</strong>
+          </div>
+          <input type="range" id="valSlider" min="1000000" max="50000000" step="1000000" value="10000000" style="width: 100%; accent-color: var(--neon-cyan); cursor: pointer;" />
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+          <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--stroke); border-radius: 16px; padding: 20px;">
+            <div style="font-size: 0.78rem; color: var(--text-subtle); text-transform: uppercase; font-weight: 600;">Investor Pool Allocation (20%)</div>
+            <div id="poolDisplay" style="font-family: var(--font-mono); font-size: 1.7rem; font-weight: 700; color: var(--text-white); margin-top: 6px;">$2,000,000</div>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--stroke); border-radius: 16px; padding: 20px;">
+            <div style="font-size: 0.78rem; color: var(--text-subtle); text-transform: uppercase; font-weight: 600;">Tokenized Shares (OB-EQUITY)</div>
+            <div id="tokenSharesDisplay" style="font-family: var(--font-mono); font-size: 1.7rem; font-weight: 700; color: var(--neon-cyan); margin-top: 6px;">200,000 OB-EQUITY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTOCOL FEATURES SECTION -->
+  <section style="padding: 96px 0; border-top: 1px solid var(--stroke);">
+    <div class="wrap-container">
+      <div class="eyebrow-tag-obolos">COMPLIANT PRIVATE SECURITIES INFRASTRUCTURE</div>
+      <h2 style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; margin-top: 12px;">
+        Built for Modern Companies & Institutional Allocators
+      </h2>
+
+      <div class="feature-grid-obolos">
+        <div class="feature-card-item">
+          <div style="font-size: 2rem; margin-bottom: 16px;">📊</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">On-Chain Cap Tables</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+            Real-time equity ledger management with transfer restrictions and shareholder registries enforced directly by Robinhood Chain smart contracts.
+          </p>
+        </div>
+
+        <div class="feature-card-item">
+          <div style="font-size: 2rem; margin-bottom: 16px;">🛡️</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Automated Compliance Protocol</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+            Built-in KYC/AML whitelisting, SEC Regulation D / Regulation S rules, and country-based transfer verification.
+          </p>
+        </div>
+
+        <div class="feature-card-item">
+          <div style="font-size: 2rem; margin-bottom: 16px;">📜</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Programmable SAFE Agreements</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+            Convertible SAFE notes with automated valuation triggers, preferred equity conversions, and secondary liquidity options.
+          </p>
+        </div>
+
+        <div class="feature-card-item">
+          <div style="font-size: 2rem; margin-bottom: 16px;">⏳</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Smart Vesting & Governance</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+            Employee tokenized share vesting schedules with cliff controls, board resolution voting, and corporate actions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-obolos">
+    <div class="wrap-container">
+      <div class="brand-logo-obolos" style="margin-bottom: 12px;">
+        obolos
+      </div>
+      <p style="color: var(--text-muted); max-width: 440px; font-size: 0.9rem;">
+        The compliance protocol for tokenized equity on Robinhood Chain.
+      </p>
+
+      <div class="footer-nav-grid" style="margin-top: 40px;">
+        <div>
+          <p style="font-size: 0.85rem; color: var(--text-subtle); max-width: 320px;">
+            obolos enforces regulatory securities compliance via programmable smart contracts on Robinhood Chain.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-size: 0.88rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--neon-cyan);">Protocol</h4>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--text-muted);">
+            <a href="protocol.html">Compliance Rules</a>
+            <a href="cap-table.html">Cap Table Portal</a>
+            <a href="developers.html">Solidity Specs</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size: 0.88rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--neon-cyan);">Community</h4>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--text-muted);">
+            <a href="https://x.com/equitylayer" target="_blank">𝕏 @equitylayer</a>
+            <a href="https://github.com/equitylayer" target="_blank">GitHub @equitylayer</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size: 0.88rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--neon-cyan);">Legal</h4>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--text-muted);">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="pt: 24px; border-top: 1px solid var(--stroke); display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-subtle);">
+        <span>&copy; 2026 obolos Protocol Inc. All rights reserved.</span>
+        <span>Robinhood Chain Network</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

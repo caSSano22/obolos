@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Developers & Solidity Interfaces | obolos</title>
+  <meta name="description" content="Technical smart contract specs and Solidity interfaces for obolos tokenized equity protocol on Robinhood Chain." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body style="padding-top: 20px;">
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar-obolos">
+    <a href="index.html" class="brand-logo-obolos">
+      obolos
+    </a>
+
+    <div class="desktop-nav-links" style="display: flex; align-items: center; gap: 16px;">
+      <nav class="nav-links-obolos">
+        <a href="index.html" class="nav-link-obolos">Overview</a>
+        <a href="protocol.html" class="nav-link-obolos">Protocol</a>
+        <a href="cap-table.html" class="nav-link-obolos">Cap Table</a>
+        <a href="developers.html" class="nav-link-obolos active">Developers</a>
+        <a href="https://x.com/equitylayer" target="_blank" class="nav-link-obolos">𝕏 @equitylayer</a>
+      </nav>
+
+      <button class="btn-obolos-cyan" onclick="launchComplianceModal()">Launch Portal</button>
+    </div>
+  </header>
+
+  <div class="wrap-container" style="padding-top: 60px; padding-bottom: 120px;">
+    <div class="eyebrow-tag-obolos">SOLIDITY SMART CONTRACT SPECS</div>
+    <h1 style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; margin-bottom: 24px;">Tokenized Equity Interfaces</h1>
+
+    <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 20px; padding: 32px; font-family: var(--font-mono); font-size: 0.88rem;">
+      <div style="color: var(--neon-cyan); margin-bottom: 12px;">// obolos IObolosEquityToken & Compliance Verification Interface</div>
+      <pre style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; border: 1px solid var(--stroke); color: #a5b4fc; overflow-x: auto;">
+interface IObolosEquityToken {
+    function issueShares(address investor, uint256 amount, uint8 equityClass) external returns (bool);
+    function verifyTransferCompliance(address from, address to, uint256 amount) external view returns (bool isAllowed, string memory reason);
+    function getShareholderRegistryHash() external view returns (bytes32 ipfsHash);
+    function setRuleEngine(address complianceRegistry) external;
+}
+      </pre>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

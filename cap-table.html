@@ -30,30 +30,70 @@
 
       <button class="btn-obolos-cyan" onclick="launchComplianceModal()">Launch Portal</button>
     </div>
+
+    <button class="btn-hamburger-obolos" onclick="toggleMobileMenuObolos()" aria-label="Open menu">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
   </header>
 
-  <div class="wrap-container" style="padding-top: 60px; padding-bottom: 120px;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+  <!-- Mobile Menu Drawer -->
+  <div id="mobileMenuDrawerObolos" class="mobile-menu-drawer-obolos">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="brand-logo-obolos" onclick="toggleMobileMenuObolos()">
+        <img src="logo.png" alt="obolos logo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+        obolos
+      </a>
+      <button style="background: transparent; border: none; font-size: 2rem; color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">&times;</button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 24px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-top: 40px;">
+      <a href="index.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Overview</a>
+      <a href="protocol.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Protocol</a>
+      <a href="cap-table.html" style="color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">Cap Table</a>
+      <a href="developers.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Developers</a>
+      <a href="https://x.com/equitylayer" target="_blank" style="color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">𝕏 @equitylayer</a>
+    </div>
+
+    <div style="margin-top: auto;">
+      <button class="btn-obolos-cyan" style="width: 100%;" onclick="toggleMobileMenuObolos(); launchComplianceModal();">Launch Portal</button>
+    </div>
+  </div>
+
+  <div class="wrap-container" style="padding-top: 48px; padding-bottom: 120px;">
+    <div class="eyebrow-tag-obolos">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--neon-cyan);"></span>
+      ON-CHAIN EQUITY LEDGER • ROBINHOOD CHAIN
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
       <div>
-        <h1 style="font-family: var(--font-display); font-size: 3rem; font-weight: 700;">On-Chain Share Registry</h1>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Tokenized equity holdings & vesting status on Robinhood Chain.</p>
+        <h1 style="font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 700; line-height: 1.15;">
+          On-Chain Share Registry
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 8px;">
+          Real-time tokenized equity holdings & vesting status on Robinhood Chain.
+        </p>
       </div>
 
       <button class="btn-obolos-cyan" onclick="launchComplianceModal()">Launch Portal</button>
     </div>
 
     <!-- Add Shareholder Interactive Form -->
-    <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 20px; padding: 24px; margin-bottom: 32px;">
-      <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--neon-cyan); margin-bottom: 16px;">Issue New Tokenized Shares</h3>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 12px; align-items: center;">
-        <input type="text" id="newShareholderName" placeholder="Entity / Investor Name" style="padding: 12px 16px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.5); color: #fff; font-family: var(--font-sans);" />
-        <select id="newShareClass" style="padding: 12px 16px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.8); color: #fff; font-family: var(--font-sans);">
+    <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 20px; padding: 28px; margin-bottom: 36px; box-shadow: 0 20px 50px rgba(0,240,255,0.12);">
+      <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--neon-cyan); margin-bottom: 16px;">Issue New Tokenized Shares</h3>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 14px; align-items: center;">
+        <input type="text" id="newShareholderName" placeholder="Entity / Investor Name" style="padding: 14px 18px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.5); color: #fff; font-family: var(--font-sans);" />
+        <select id="newShareClass" style="padding: 14px 18px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.8); color: #fff; font-family: var(--font-sans);">
           <option>Common Stock A</option>
           <option>Preferred SAFE</option>
           <option>Option Pool</option>
         </select>
-        <input type="number" id="newShareAmount" placeholder="Amount (e.g. 50000)" style="padding: 12px 16px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.5); color: #fff; font-family: var(--font-sans);" />
-        <button class="btn-obolos-cyan" style="padding: 12px 24px;" onclick="addNewShareholder()">Mint Shares</button>
+        <input type="number" id="newShareAmount" placeholder="Amount (e.g. 50000)" style="padding: 14px 18px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.5); color: #fff; font-family: var(--font-sans);" />
+        <button class="btn-obolos-cyan" style="padding: 14px 28px;" onclick="addNewShareholder()">Mint Shares</button>
       </div>
     </div>
 
@@ -66,21 +106,21 @@
       </div>
 
       <div id="shareholderRegistryList">
-        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--stroke); color: var(--text-white);">
+        <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--stroke); color: var(--text-white);">
           <span>Founders Pool (51.0%)</span>
           <span style="color: var(--neon-cyan);">Common Stock A</span>
           <span>5,100,000 OB-EQ</span>
           <span style="color: #4ade80;">100% Vested</span>
         </div>
 
-        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--stroke); color: var(--text-white);">
+        <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--stroke); color: var(--text-white);">
           <span>Seed Investor Syndicate (20.0%)</span>
           <span style="color: var(--neon-cyan);">Preferred SAFE</span>
           <span>2,000,000 OB-EQ</span>
           <span style="color: #00f0ff;">Reg D Whitelisted</span>
         </div>
 
-        <div style="display: flex; justify-content: space-between; padding: 12px 0; color: var(--text-white);">
+        <div style="display: flex; justify-content: space-between; padding: 14px 0; color: var(--text-white);">
           <span>Employee Option Pool (15.0%)</span>
           <span style="color: var(--neon-cyan);">Option Pool</span>
           <span>1,500,000 OB-EQ</span>

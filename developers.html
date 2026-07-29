@@ -30,27 +30,128 @@
 
       <button class="btn-obolos-cyan" onclick="launchComplianceModal()">Launch Portal</button>
     </div>
+
+    <button class="btn-hamburger-obolos" onclick="toggleMobileMenuObolos()" aria-label="Open menu">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
   </header>
 
-  <div class="wrap-container" style="padding-top: 60px; padding-bottom: 120px;">
-    <div class="eyebrow-tag-obolos">SOLIDITY SMART CONTRACT SPECS</div>
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
-      <h1 style="font-family: var(--font-display); font-size: 3rem; font-weight: 700;">Tokenized Equity Interfaces</h1>
-      <button class="btn-obolos-cyan" onclick="runSoliditySim()">Test Compile Contract</button>
+  <!-- Mobile Menu Drawer -->
+  <div id="mobileMenuDrawerObolos" class="mobile-menu-drawer-obolos">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="brand-logo-obolos" onclick="toggleMobileMenuObolos()">
+        <img src="logo.png" alt="obolos logo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+        obolos
+      </a>
+      <button style="background: transparent; border: none; font-size: 2rem; color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">&times;</button>
     </div>
 
-    <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 20px; padding: 32px; font-family: var(--font-mono); font-size: 0.88rem;">
-      <div style="color: var(--neon-cyan); margin-bottom: 12px;">// obolos IObolosEquityToken & Compliance Verification Interface</div>
-      <pre style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; border: 1px solid var(--stroke); color: #a5b4fc; overflow-x: auto;">
-interface IObolosEquityToken {
-    function issueShares(address investor, uint256 amount, uint8 equityClass) external returns (bool);
-    function verifyTransferCompliance(address from, address to, uint256 amount) external view returns (bool isAllowed, string memory reason);
-    function getShareholderRegistryHash() external view returns (bytes32 ipfsHash);
-    function setRuleEngine(address complianceRegistry) external;
-}
-      </pre>
+    <div style="display: flex; flex-direction: column; gap: 24px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-top: 40px;">
+      <a href="index.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Overview</a>
+      <a href="protocol.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Protocol</a>
+      <a href="cap-table.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Cap Table</a>
+      <a href="developers.html" style="color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">Developers</a>
+      <a href="https://x.com/equitylayer" target="_blank" style="color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">𝕏 @equitylayer</a>
+    </div>
 
-      <div id="solidityOutputBox" style="margin-top: 16px;"></div>
+    <div style="margin-top: auto;">
+      <button class="btn-obolos-cyan" style="width: 100%;" onclick="toggleMobileMenuObolos(); launchComplianceModal();">Launch Portal</button>
+    </div>
+  </div>
+
+  <div class="wrap-container" style="padding-top: 48px; padding-bottom: 120px;">
+    <div class="eyebrow-tag-obolos">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--neon-cyan);"></span>
+      SOLIDITY SMART CONTRACT SPECS • ROBINHOOD CHAIN
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <h1 style="font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 700; line-height: 1.15;">
+          Tokenized Equity Developer Architecture
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 8px; max-width: 680px;">
+          Build, integrate, and query compliance-enforced equity tokens directly via Robinhood Chain RPC nodes.
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <button class="btn-obolos-cyan" onclick="runSoliditySim()">⚡ Compile & Verify Contract</button>
+      </div>
+    </div>
+
+    <!-- MAIN IDE TERMINAL WIDGET WITH SYNTAX HIGHLIGHTING -->
+    <div style="background: rgba(12, 14, 20, 0.95); border: 1px solid var(--stroke-glow); border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 240, 255, 0.15); overflow: hidden; margin-bottom: 48px;">
+      <!-- Code Header Bar -->
+      <div style="background: rgba(255, 255, 255, 0.04); padding: 14px 24px; border-bottom: 1px solid var(--stroke); display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; display: inline-block;"></span>
+          <span style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; display: inline-block;"></span>
+          <span style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f; display: inline-block;"></span>
+          <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-left: 12px;">contracts/IObolosEquityToken.sol</span>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--neon-cyan); background: rgba(0,240,255,0.08); padding: 4px 12px; border-radius: 9999px;">
+          Solidity ^0.8.20
+        </div>
+      </div>
+
+      <!-- Code Body -->
+      <div style="padding: 24px 28px; font-family: var(--font-mono); font-size: 0.92rem; line-height: 1.7; overflow-x: auto;">
+<pre style="white-space: pre-wrap; word-break: break-word;"><span style="color: #c678dd;">// SPDX-License-Identifier: MIT</span>
+<span style="color: #c678dd;">pragma</span> <span style="color: #e5c07b;">solidity</span> ^0.8.20;
+
+<span style="color: #c678dd;">interface</span> <span style="color: #61afef;">IObolosEquityToken</span> {
+    <span style="color: #c678dd;">event</span> <span style="color: #61afef;">SharesIssued</span>(<span style="color: #e5c07b;">address</span> <span style="color: #c678dd;">indexed</span> investor, <span style="color: #e5c07b;">uint256</span> amount, <span style="color: #e5c07b;">uint8</span> equityClass);
+    <span style="color: #c678dd;">event</span> <span style="color: #61afef;">TransferVerified</span>(<span style="color: #e5c07b;">address</span> <span style="color: #c678dd;">indexed</span> from, <span style="color: #e5c07b;">address</span> <span style="color: #c678dd;">indexed</span> to, <span style="color: #e5c07b;">uint256</span> amount);
+
+    <span style="color: #c678dd;">function</span> <span style="color: #61afef;">issueShares</span>(
+        <span style="color: #e5c07b;">address</span> investor,
+        <span style="color: #e5c07b;">uint256</span> amount,
+        <span style="color: #e5c07b;">uint8</span> equityClass
+    ) <span style="color: #c678dd;">external</span> <span style="color: #c678dd;">returns</span> (<span style="color: #e5c07b;">bool</span>);
+
+    <span style="color: #c678dd;">function</span> <span style="color: #61afef;">verifyTransferCompliance</span>(
+        <span style="color: #e5c07b;">address</span> from,
+        <span style="color: #e5c07b;">address</span> to,
+        <span style="color: #e5c07b;">uint256</span> amount
+    ) <span style="color: #c678dd;">external view returns</span> (<span style="color: #e5c07b;">bool</span> isAllowed, <span style="color: #e5c07b;">string memory</span> reason);
+
+    <span style="color: #c678dd;">function</span> <span style="color: #61afef;">getShareholderRegistryHash</span>() <span style="color: #c678dd;">external view returns</span> (<span style="color: #e5c07b;">bytes32</span> ipfsHash);
+}</pre>
+      </div>
+
+      <!-- Output Terminal Console -->
+      <div id="solidityOutputBox" style="background: rgba(0,0,0,0.6); padding: 18px 24px; border-top: 1px solid var(--stroke);">
+        <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-subtle);">
+          Console Output: Ready to compile. Click 'Compile & Verify Contract' above.
+        </div>
+      </div>
+    </div>
+
+    <!-- API GRID REFERENCE -->
+    <h2 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; margin-bottom: 24px;">Developer SDK & Integration Nodes</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--stroke); border-radius: 20px; padding: 28px;">
+        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan); margin-bottom: 8px;">TYPESCRIPT SDK</div>
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">@obolos/equity-sdk</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+          npm package for automated cap table querying, shareholder verification, and SEC Reg D compliance hooks.
+        </p>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--stroke); border-radius: 20px; padding: 28px;">
+        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan); margin-bottom: 8px;">ROBINHOOD CHAIN RPC</div>
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">https://rpc.robinhoodchain.org</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+          Ultra-low latency sub-second RPC endpoint for querying tokenized share balances and IPFS Merkle attestations.
+        </p>
+      </div>
     </div>
   </div>
 

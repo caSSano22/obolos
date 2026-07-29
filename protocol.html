@@ -30,14 +30,54 @@
 
       <button class="btn-obolos-cyan" onclick="launchComplianceModal()">Launch Portal</button>
     </div>
+
+    <button class="btn-hamburger-obolos" onclick="toggleMobileMenuObolos()" aria-label="Open menu">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
   </header>
 
-  <div class="wrap-container" style="padding-top: 60px; padding-bottom: 120px;">
-    <div class="eyebrow-tag-obolos">PROGRAMMABLE COMPLIANCE ENGINE</div>
-    <h1 style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; margin-bottom: 24px;">Regulatory Transfer Rules & Verification</h1>
+  <!-- Mobile Menu Drawer -->
+  <div id="mobileMenuDrawerObolos" class="mobile-menu-drawer-obolos">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="brand-logo-obolos" onclick="toggleMobileMenuObolos()">
+        <img src="logo.png" alt="obolos logo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+        obolos
+      </a>
+      <button style="background: transparent; border: none; font-size: 2rem; color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">&times;</button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 24px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-top: 40px;">
+      <a href="index.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Overview</a>
+      <a href="protocol.html" style="color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">Protocol</a>
+      <a href="cap-table.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Cap Table</a>
+      <a href="developers.html" style="color: #fff;" onclick="toggleMobileMenuObolos()">Developers</a>
+      <a href="https://x.com/equitylayer" target="_blank" style="color: var(--neon-cyan);" onclick="toggleMobileMenuObolos()">𝕏 @equitylayer</a>
+    </div>
+
+    <div style="margin-top: auto;">
+      <button class="btn-obolos-cyan" style="width: 100%;" onclick="toggleMobileMenuObolos(); launchComplianceModal();">Launch Portal</button>
+    </div>
+  </div>
+
+  <div class="wrap-container" style="padding-top: 48px; padding-bottom: 120px;">
+    <div class="eyebrow-tag-obolos">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--neon-cyan);"></span>
+      PROGRAMMABLE COMPLIANCE ENGINE • ROBINHOOD CHAIN
+    </div>
+
+    <h1 style="font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 700; margin-bottom: 12px;">
+      Regulatory Transfer Rules & Verification
+    </h1>
+    <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 720px; margin-bottom: 36px;">
+      Enforce SEC Regulation D, Regulation S, and FCA UK accredited investor checks automatically on every share transfer.
+    </p>
 
     <!-- Interactive Compliance Verification Simulator -->
-    <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 24px; padding: 36px; margin-bottom: 48px;">
+    <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 24px; padding: 36px; margin-bottom: 48px; box-shadow: 0 20px 50px rgba(0,240,255,0.12);">
       <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--neon-cyan); margin-bottom: 16px;">Test Compliance Verification Engine</h3>
       <form id="complianceTestForm" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
         <div>
@@ -73,14 +113,14 @@
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
-      <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 20px; padding: 32px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--stroke); border-radius: 20px; padding: 32px;">
         <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; color: var(--neon-cyan);">KYC / AML Whitelisting</h3>
         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
           Every share transfer executes an automated check against verified investor identities before token minting or transfer.
         </p>
       </div>
 
-      <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 20px; padding: 32px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--stroke); border-radius: 20px; padding: 32px;">
         <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; color: var(--neon-cyan);">SEC Reg D & Reg S Enforcement</h3>
         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
           Automated 1-year lockup periods, accredited investor verification, and country jurisdiction transfer barriers.

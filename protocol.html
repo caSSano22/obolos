@@ -30,7 +30,43 @@
 
   <div class="wrap-container" style="padding-top: 60px; padding-bottom: 120px;">
     <div class="eyebrow-tag-obolos">PROGRAMMABLE COMPLIANCE ENGINE</div>
-    <h1 style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; margin-bottom: 24px;">Regulatory Transfer Rules</h1>
+    <h1 style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; margin-bottom: 24px;">Regulatory Transfer Rules & Verification</h1>
+
+    <!-- Interactive Compliance Verification Simulator -->
+    <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 24px; padding: 36px; margin-bottom: 48px;">
+      <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--neon-cyan); margin-bottom: 16px;">Test Compliance Verification Engine</h3>
+      <form id="complianceTestForm" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+        <div>
+          <label style="display: block; font-size: 0.8rem; color: var(--text-subtle); font-family: var(--font-mono); margin-bottom: 6px;">SENDER WALLET ADDRESS</label>
+          <input type="text" id="testSenderAcc" value="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.5); color: #fff; font-family: var(--font-mono);" />
+        </div>
+
+        <div>
+          <label style="display: block; font-size: 0.8rem; color: var(--text-subtle); font-family: var(--font-mono); margin-bottom: 6px;">RECIPIENT WALLET ADDRESS</label>
+          <input type="text" id="testRecipientAcc" value="0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.5); color: #fff; font-family: var(--font-mono);" />
+        </div>
+
+        <div>
+          <label style="display: block; font-size: 0.8rem; color: var(--text-subtle); font-family: var(--font-mono); margin-bottom: 6px;">TRANSFER REGULATION SCOPE</label>
+          <select style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.8); color: #fff; font-family: var(--font-sans);">
+            <option>SEC Regulation D (Accredited US Investors)</option>
+            <option>SEC Regulation S (International Off-Shore)</option>
+            <option>FCA UK Qualified Institutional Buyer</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: 0.8rem; color: var(--text-subtle); font-family: var(--font-mono); margin-bottom: 6px;">TRANSFER AMOUNT (OB-EQUITY)</label>
+          <input type="number" value="10000" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,0.5); color: #fff; font-family: var(--font-sans);" />
+        </div>
+
+        <div style="grid-column: span 2; margin-top: 12px;">
+          <button type="submit" class="btn-obolos-cyan" style="width: 100%;">Execute On-Chain Verification Check</button>
+        </div>
+      </form>
+
+      <div id="complianceTestResult" style="display: none;"></div>
+    </div>
 
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
       <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 20px; padding: 32px;">

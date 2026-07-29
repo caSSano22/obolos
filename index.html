@@ -68,6 +68,24 @@
     </div>
   </div>
 
+  <!-- INTERACTIVE PORTAL MODAL -->
+  <div id="obolosPortalModal" style="position: fixed; inset: 0; z-index: 2000; background: rgba(12, 13, 17, 0.9); backdrop-filter: blur(12px); display: none; align-items: center; justify-content: center;">
+    <div style="background: var(--bg-card); border: 1px solid var(--stroke-glow); border-radius: 24px; padding: 36px; width: 100%; max-width: 480px; box-shadow: 0 20px 50px rgba(0, 240, 255, 0.2);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--neon-cyan);">Robinhood Equity Portal</h3>
+        <button style="background: transparent; border: none; font-size: 1.6rem; color: var(--text-subtle);" onclick="closePortalModal()">&times;</button>
+      </div>
+
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px;">Issue, manage, and verify compliance for tokenized equity on Robinhood Chain.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="cap-table.html" class="btn-obolos-cyan" style="width: 100%; text-align: center;">📊 Open Cap Table Ledger</a>
+        <a href="protocol.html" class="btn-obolos-outline" style="width: 100%; text-align: center;">🛡️ Verify Compliance Rules</a>
+        <a href="developers.html" class="btn-obolos-outline" style="width: 100%; text-align: center;">⚡ Developer Solidity Specs</a>
+      </div>
+    </div>
+  </div>
+
   <!-- HERO SECTION -->
   <section class="hero-obolos">
     <div class="wrap-container" style="position: relative; z-index: 10;">

@@ -119,6 +119,15 @@ function initDevSandboxPage() {
   };
 }
 
+function copyCaAddress() {
+  const ca = '0xa36A8b5ca257c68E9eb62CB2C0CE818aCBB80841';
+  navigator.clipboard.writeText(ca).then(() => {
+    showObolosToast('📋 Contract Address (CA) copied to clipboard!');
+  }).catch(() => {
+    showObolosToast('📋 CA: ' + ca);
+  });
+}
+
 // Global Portal Modal & Drawer Logic
 function toggleMobileMenuObolos() {
   const drawer = document.getElementById('mobileMenuDrawerObolos');
